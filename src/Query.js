@@ -7,12 +7,15 @@ const githubQuery = {
           search(query: "user:asketsystem sort:updted-desc", type: REPOSITORY, first: 10) {
             nodes {
               ... on Repository {
-                name
-                description
-                id
-                url
-                viewerSubscription
-              }
+                    name
+                    description
+                    id
+                    url
+                    viewerSubscription
+                    licenseInfo {
+                        spdxId
+                    }
+                }
             }
         }
     }
