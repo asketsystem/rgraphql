@@ -2,18 +2,20 @@ const githubQuery = {
     query: `
     {
         viewer {
-          name
-          repositories(first: 10) {
-            nodes {
-              name
-              description
-              id
-              url
-            }
-          }
+            name
         }
-      }
+          search(query: "user:asketsystem sort:updted-desc", type: REPOSITORY, first: 10) {
+            nodes {
+              ... on Repository {
+                name
+                description
+                id
+                url
+              }
+            }
+        }
+    }
     `,
-  };
+};
 
   export default githubQuery
